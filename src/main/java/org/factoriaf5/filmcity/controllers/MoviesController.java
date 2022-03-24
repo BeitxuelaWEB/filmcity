@@ -22,17 +22,24 @@ public class MoviesController {
         return movieRepository.findAll();
     }
 
+    @GetMapping("/coders/{id}")
+    public Movie findMovie(@PathVariable Long id) {
+        return movieRepository.findById(id).orElseThrow(MovieNotFoundException::new);
+    }
     @PostMapping("/movies")
     public Movie addMovie(@RequestBody Movie movie) {
         return movieRepository.save(movie);
     }
-
-    /*
-    @PutMapping("/coders")
+    @PutMapping("/movies")
     public Movie updateMovieById(@RequestBody Movie movie) {
-        movieRepository.findById(movie.getMovieById()).orElseThrow(MovieNotFoundException::new);
+        movieRepository.findById(movie.getId()).orElseThrow(MovieNotFoundException::new);
         return movieRepository.save(movie);
-
     }
-    */
+    @DeleteMapping("/movies/{id}")
+    public Movie deleteMovieById(@PathVariable Long id) {
+        Movie movie = movieRepository.findById(id).orElseThrow(MovieNotFoundException::new);
+        movieRepository.deleteById(id);
+        return movie;
+    }
+
 }
