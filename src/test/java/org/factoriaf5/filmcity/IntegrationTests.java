@@ -73,6 +73,7 @@ class IntegrationTests {
 
         movieRepository.saveAll(movies);
     }
+
     @Test
     void allowsToCreateANewMovie() throws Exception {
         mockMvc.perform(post("/movies")
@@ -96,6 +97,39 @@ class IntegrationTests {
         )));
     }
     @Test
+    void allowsToFindAMovieById() throws Exception {
+
+        Movie movie = movieRepository.save(new Movie("Jurassic Park", "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oU7Oq2kFAAlGqbU4VoAE36g4hoI.jpg", "Steven Spielberg", 1993, "A wealthy entrepreneur secretly creates a theme park featuring living dinosaurs drawn from prehistoric DNA."));
+
+        mockMvc.perform(get("/movies/" + movie.getId()))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.title", equalTo("Jurassic Park")))
+                .andExpect(jsonPath("$.coverImage", equalTo("https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oU7Oq2kFAAlGqbU4VoAE36g4hoI.jpg")))
+                .andExpect(jsonPath("$.director", equalTo("Steven Spielberg")))
+                .andExpect(jsonPath("$.year", equalTo(1993)))
+                .andExpect(jsonPath("$.synopsis", equalTo("A wealthy entrepreneur secretly creates a theme park featuring living dinosaurs drawn from prehistoric DNA.")));
+    }
+
+    @Test
+    void allowsToModifyAMovie() throws Exception {
+        Movie movie = movieRepository.save(new Movie("Jurassic Park", "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oU7Oq2kFAAlGqbU4VoAE36g4hoI.jpg", "Steven Spielberg", 1993, "A wealthy entrepreneur secretly creates a theme park featuring living dinosaurs drawn from prehistoric DNA."));
+
+        mockMvc.perform(put("/movies")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{" +
+                        "\"id\": \"" + movie.getId() + "\", " +
+                        "\"title\": \"Hero of Central Park\", " +
+                        "\"coverImage\": \"https://imgix.ranker.com/node_img/9/166109/original/chestnut-hero-of-central-park-films-photo-1?auto=format&q=60&fit=fill&fm=pjpg&dpr=2&crop=faces&bg=fff&h=333&w=333\" }")
+        ).andExpect(status().isOk());
+
+        List<Movie> movies = movieRepository.findAll();
+
+        assertThat(movies, hasSize(1));
+        assertThat(movies.get(0).getTitle(), equalTo("Hero of Central Park"));
+        assertThat(movies.get(0).getCoverImage(), equalTo("https://imgix.ranker.com/node_img/9/166109/original/chestnut-hero-of-central-park-films-photo-1?auto=format&q=60&fit=fill&fm=pjpg&dpr=2&crop=faces&bg=fff&h=333&w=333"));
+    }
+
+    @Test
     void returnsAnErrorIfTryingToGetAMovieThatDoesNotExist() throws Exception {
         mockMvc.perform(get("/movies/1"))
                 .andExpect(status().isNotFound());
@@ -117,23 +151,4 @@ class IntegrationTests {
     void returnsAnErrorIfTryingToDeleteAMovieThatDoesNotExist() throws Exception {
         mockMvc.perform(delete("/movies/1"))
                 .andExpect(status().isNotFound());
-    }
-    @Test
-    void allowsToModifyAMovie() throws Exception {
-        Movie movie = movieRepository.save(new Movie("Jurassic Park", "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oU7Oq2kFAAlGqbU4VoAE36g4hoI.jpg", "Steven Spielberg", 1993, "A wealthy entrepreneur secretly creates a theme park featuring living dinosaurs drawn from prehistoric DNA."));
-
-        mockMvc.perform(put("/movies")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content("{" +
-                        "\"coderId\": \"" + movie.getId() + "\", " +
-                        "\"title\": \"Hero of Central Park\", " +
-                        "\"coverImage\": \"https://imgix.ranker.com/node_img/9/166109/original/chestnut-hero-of-central-park-films-photo-1?auto=format&q=60&fit=fill&fm=pjpg&dpr=2&crop=faces&bg=fff&h=333&w=333\" }")
-        ).andExpect(status().isOk());
-
-        List<Movie> movies = movieRepository.findAll();
-
-        assertThat(movies, hasSize(2));
-        assertThat(movies.get(0).getTitle(), equalTo("Hero of Central Park"));
-        assertThat(movies.get(0).getCoverImage(), equalTo("https://imgix.ranker.com/node_img/9/166109/original/chestnut-hero-of-central-park-films-photo-1?auto=format&q=60&fit=fill&fm=pjpg&dpr=2&crop=faces&bg=fff&h=333&w=333"));
-    }
-}
+    }}

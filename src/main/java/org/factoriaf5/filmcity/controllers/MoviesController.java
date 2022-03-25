@@ -22,7 +22,7 @@ public class MoviesController {
         return movieRepository.findAll();
     }
 
-    @GetMapping("/coders/{id}")
+    @GetMapping("/movies/{id}")
     public Movie findMovie(@PathVariable Long id) {
         return movieRepository.findById(id).orElseThrow(MovieNotFoundException::new);
     }
@@ -41,5 +41,4 @@ public class MoviesController {
         movieRepository.deleteById(id);
         return movie;
     }
-
 }
