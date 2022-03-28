@@ -15,6 +15,9 @@ public class Movie {
     private int year;
     @Lob
     private String synopsis;
+    private String renter = null;
+    private boolean booked = false;
+    private int score;
 
     public Movie() { }
 
@@ -24,6 +27,9 @@ public class Movie {
         this.director = director;
         this.year = year;
         this.synopsis = synopsis;
+        this.renter = renter;
+        this.booked = booked;
+        this.score = score;
     }
 
     public Long getId() {
@@ -33,6 +39,7 @@ public class Movie {
     public void setId(Long id) {
         this.id = id;
     }
+    public void setRenter(){this.renter = renter;}
 
     public String getTitle() {
         return title;

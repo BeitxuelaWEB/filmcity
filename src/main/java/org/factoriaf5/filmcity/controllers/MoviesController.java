@@ -41,4 +41,12 @@ public class MoviesController {
         movieRepository.deleteById(id);
         return movie;
     }
+    @PutMapping("/movies/{id}/book")
+    public Movie updateMovieRented(@PathVariable Long id, @RequestParam (value = "renter")String renter) {
+        Movie movie = movieRepository.findById(id).orElseThrow(MoviesNotFoundException::new);
+        movie.setRenter(renter);
+        movie.setBooked(true);
+        return movieRepository.save(movie);
+
+    }
 }
