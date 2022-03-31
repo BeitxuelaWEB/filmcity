@@ -43,10 +43,29 @@ public class MoviesController {
     }
     @PutMapping("/movies/{id}/book")
     public Movie updateMovieRented(@PathVariable Long id, @RequestParam (value = "renter")String renter) {
-        Movie movie = movieRepository.findById(id).orElseThrow(MoviesNotFoundException::new);
+        Movie movie = movieRepository.findById(id).orElseThrow(MovieNotFoundException::new);
         movie.setRenter(renter);
         movie.setBooked(true);
         return movieRepository.save(movie);
 
+    }
+    @PutMapping("/movies/{id}/return")
+    public Movie clearMovieRented(@PathVariable Long id) {
+        Movie movie = movieRepository.findById(id).orElseThrow(MovieNotFoundException::new);
+        movie.setRenter(null);
+        movie.setBooked(false);
+        return movieRepository.save(movie);
+    }
+    @PutMapping("/movies/{id}/rating")
+    public Movie updateRatingById(@PathVariable Long id,@RequestBody Movie movie){
+        Movie movieToEdit = movieRepository.findById(id).orElseThrow(MovieNotFoundException::new);
+        int newScore = movie.getScore();
+        if (newScore >= 0 && newScore <= 10) {
+            movieToEdit.setScore(newScore);
+        } else{
+            movieToEdit.setScore(0);
+            throw new IllegalArgumentException("Please enter number between 0 and 10");
+        }
+        return movieRepository.save(movieToEdit);
     }
 }

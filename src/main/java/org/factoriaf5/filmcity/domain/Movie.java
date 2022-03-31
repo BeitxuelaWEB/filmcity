@@ -21,7 +21,7 @@ public class Movie {
 
     public Movie() { }
 
-    public Movie(String title, String coverImage, String director, int year, String synopsis) {
+    public Movie(String title, String coverImage, String director, int year, String synopsis ) {
         this.title = title;
         this.coverImage = coverImage;
         this.director = director;
@@ -59,5 +59,27 @@ public class Movie {
 
     public String getSynopsis() {
         return synopsis;
+    }
+
+    public boolean isBooked() {
+        return booked;
+    }
+
+    public void setBooked(boolean booked) {
+        this.booked = booked;
+    }
+    public String getRenter() {
+        return renter;
+    }
+
+    public void setRenter(String renter) {
+        this.renter = renter;
+    }
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }
