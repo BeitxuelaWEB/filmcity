@@ -22,7 +22,8 @@ Back-End
 
 # See all the movies in the list :cinema:
 
-Request GET http://localhost:8080/movies
+Request 
+> GET http://localhost:8080/movies
 
 ```
 [
