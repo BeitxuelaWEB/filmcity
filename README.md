@@ -1,5 +1,5 @@
 
-# FilmCity
+# FilmCity :movie_camera:
 FilmCity is our latest REST API based on the Java framework Spring Boot.
 
 =======
@@ -9,7 +9,8 @@ FilmCity is our latest REST API based on the Java framework Spring Boot.
 Back-End
 
 =======
-# Functionalities
+# Functionalities :floppy_disk:
+
 - See all the movies in the DB
 - Find a movie by its ID
 - Add a new movie to the DB
@@ -100,7 +101,18 @@ Request GET http://localhost:8080/movies
         "renter": null,
         "score": 0,
         "synopsis": "On the Basis of Sex is inspired by the true story of a young Ruth Bader Ginsburg – then a struggling attorney and new mother – who faces adversity and numerous obstacles in her fight for equal rights throughout her career."
+    },
+    {
+        "title": "El señor de los anillos",
+        "coverImage": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oU7Oq2kFAAlGqbU4VoAE36g4hoI.jpg",
+        "director": "CarlitosHunter",
+        "year": 2001,
+        "synopsis": "A wealthy entrepreneur secretly creates a theme park featuring living dinosaurs drawn from prehistoric DNA.",
+        "renter": null,
+        "booked": false,
+        "score": 0
     }
+
 ]
 ````
 
@@ -120,4 +132,9 @@ Request GET http://localhost:8080/movies
 - Miguel Ángel Íñiguez Pérez - https://github.com/maip202
 - Raquel Castro Fernández - 
 - Beatriz Robledillo Gómez - https://github.com/BeitxuelaWEB
+
+# Greetings :gift:
+- Comment your friends and colleagues about this project. :loudspeaker:
+- Thank the team. :slightly_smiling_face:
+- Invite the team for a beer. :beer:
 
