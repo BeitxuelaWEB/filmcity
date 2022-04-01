@@ -21,6 +21,7 @@ Back-End
 - Rate a movie by its ID
 
 # See all the movies in the list :cinema:
+
 Request GET http://localhost:8080/movies
 
 ```
@@ -115,10 +116,11 @@ Request GET http://localhost:8080/movies
 
 ]
 ```
+
 # Add movie
+
 Adds a new movie to the movies repository
-Request
-POST http://localhost:8080/movies
+Request POST http://localhost:8080/movies
 
 
 ```
@@ -134,9 +136,8 @@ POST http://localhost:8080/movies
     }
 ```
 # Update a movie
-Updates the data of a movie
-Request
-PUT http://localhost:8080/movies
+ Updates the data of a movie.
+ Request PUT http://localhost:8080/movies
 
 ```
 {
