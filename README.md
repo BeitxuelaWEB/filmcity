@@ -19,6 +19,9 @@ Back-End
 - Get the name of the renter
 - Rate a movie by its ID
 
+# See all the movies in the list :cinema:
+Request GET http://localhost:8080/movies
+
 ````
 [
     {
@@ -101,8 +104,6 @@ Back-End
 ]
 ````
 
-# See all the movies in the list :cinema:
-Request GET http://localhost:8080/movies
 
 # Tools :computer:
 
