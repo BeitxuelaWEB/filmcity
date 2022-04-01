@@ -23,7 +23,7 @@ Back-End
 # See all the movies in the list :cinema:
 Request GET http://localhost:8080/movies
 
-````
+```
 [
     {
         "id": 1,
@@ -121,7 +121,7 @@ Request
 POST http://localhost:8080/movies
 
 
-````
+```
   {
         "title": "El señor de los anillos",
         "coverImage": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oU7Oq2kFAAlGqbU4VoAE36g4hoI.jpg",
@@ -132,13 +132,13 @@ POST http://localhost:8080/movies
         "booked": false,
         "score": 0
     }
-````
+```
 # Update a movie
 Updates the data of a movie
 Request
 PUT http://localhost:8080/movies
 
-´´´´
+```
 {
         "title": "El señor de los anillos",
         "coverImage": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oU7Oq2kFAAlGqbU4VoAE36g4hoI.jpg",
@@ -149,7 +149,7 @@ PUT http://localhost:8080/movies
         "booked": false,
         "score": 0
     }
-    ´´´
+```
     
 
 # Tools :computer:
