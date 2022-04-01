@@ -117,6 +117,9 @@ Request GET http://localhost:8080/movies
 ````
 # Add movie
 Adds a new movie to the movies repository
+Request
+POST http://localhost:8080/movies
+
 
 ````
   {
@@ -132,6 +135,8 @@ Adds a new movie to the movies repository
 ````
 # Update a movie
 Updates the data of a movie
+Request
+PUT http://localhost:8080/movies
 
 ´´´´
 {
@@ -144,7 +149,9 @@ Updates the data of a movie
         "booked": false,
         "score": 0
     }
-    ´´
+    ´´´
+    
+
 # Tools :computer:
 
 - Git / Github
