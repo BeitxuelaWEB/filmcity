@@ -114,7 +114,7 @@ Request GET http://localhost:8080/movies
     }
 
 ]
-````
+```
 # Add movie
 Adds a new movie to the movies repository
 Request
