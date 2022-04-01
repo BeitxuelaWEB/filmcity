@@ -115,8 +115,36 @@ Request GET http://localhost:8080/movies
 
 ]
 ````
+# Add movie
+Adds a new movie to the movies repository
 
+````
+  {
+        "title": "El señor de los anillos",
+        "coverImage": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oU7Oq2kFAAlGqbU4VoAE36g4hoI.jpg",
+        "director": "CarlitosHunter",
+        "year": 2001,
+        "synopsis": "A wealthy entrepreneur secretly creates a theme park featuring living dinosaurs drawn from prehistoric DNA.",
+        "renter": null,
+        "booked": false,
+        "score": 0
+    }
+````
+# Update a movie
+Updates the data of a movie
 
+´´´´
+{
+        "title": "El señor de los anillos",
+        "coverImage": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oU7Oq2kFAAlGqbU4VoAE36g4hoI.jpg",
+        "director": "CarlitosHunter",
+        "year": 2001,
+        "synopsis": "A wealthy entrepreneur secretly creates a theme park featuring living dinosaurs drawn from prehistoric DNA.",
+        "renter": null,
+        "booked": false,
+        "score": 0
+    }
+    ´´
 # Tools :computer:
 
 - Git / Github
