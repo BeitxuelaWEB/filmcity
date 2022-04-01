@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # FilmCity
 FilmCity is our latest REST API based on the Java framework Spring Boot.
 
@@ -21,11 +21,11 @@ Request GET http://localhost:8080/movies
 
 =======
 # Functionalities
--See all the movies in the DB
--Find a movie by its ID
--Add a new movie to the DB
--Delete a selected movie
--Update movie information
--Add a booked status if a movie is rented
--Get the name of the renter
--Rate a movie by its ID
+- See all the movies in the DB
+- Find a movie by its ID
+- Add a new movie to the DB
+- Delete a selected movie
+- Update movie information
+- Add a booked status if a movie is rented
+- Get the name of the renter
+- Rate a movie by its ID
